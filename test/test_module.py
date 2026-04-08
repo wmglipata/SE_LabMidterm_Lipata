@@ -26,7 +26,7 @@ def test_validate_config_helper():
     assert validate_config({"key": "value"}) is True
     assert validate_config("not a dict") is False
 
-# Positive test cases for additional coverage
+# Positive and Edge test cases for additional coverage
 def test_process_data_numeric_string():
     """Positive: Verify numeric strings are handled correctly."""
     proc = CoreProcessor()
@@ -47,3 +47,23 @@ def test_process_data_mixed_case():
     """Positive: Verify mixed case is standardized to uppercase."""
     proc = CoreProcessor()
     assert proc.process_data("mOoDlEpLuS") == "MOODLEPLUS"
+
+# Negative test case for invalid config
+def test_process_data_empty_string():
+    """Negative: Verify empty string raises ValueError (per our module logic)."""
+    proc = CoreProcessor()
+    with pytest.raises(ValueError, match="Input data cannot be empty."):
+        proc.process_data("")
+
+def test_process_data_whitespace_only():
+    """Negative: Verify string with only spaces is treated as empty."""
+    proc = CoreProcessor()
+    with pytest.raises(ValueError, match="Input data cannot be empty."):
+        proc.process_data("   ")
+
+def test_process_data_integer_input():
+    """Negative: Verify non-string input handling."""
+    proc = CoreProcessor()
+    # If your logic only expects strings, this should be tested
+    with pytest.raises(Exception):
+        proc.process_data(12345)
