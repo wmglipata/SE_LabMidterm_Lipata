@@ -15,3 +15,14 @@ def test_process_data_valid_input():
     assert result == "MOODLEPLUS PROJECT"
     assert "MOODLEPLUS PROJECT" in proc.results
 
+def test_process_data_null_input():
+    """Verify that the processor raises a ValueError on None input."""
+    proc = CoreProcessor()
+    with pytest.raises(ValueError, match="Input cannot be null."):
+        proc.process_data(None)
+
+def test_validate_config_helper():
+    """Check if the config validator identifies dictionaries correctly."""
+    assert validate_config({"key": "value"}) is True
+    assert validate_config("not a dict") is False
+
