@@ -67,3 +67,29 @@ def test_process_data_integer_input():
     # If your logic only expects strings, this should be tested
     with pytest.raises(Exception):
         proc.process_data(12345)
+
+# Non-functional test cases
+import time
+
+def test_process_data_performance():
+    """Non-Functional: Ensure processing takes less than 10ms."""
+    proc = CoreProcessor()
+    start_time = time.time()
+    proc.process_data("Performance Test")
+    end_time = time.time()
+    duration = end_time - start_time
+    assert duration < 0.01  # 10 milliseconds
+
+def test_results_list_integrity():
+    """Non-Functional: Verify results list grows correctly over 100 iterations."""
+    proc = CoreProcessor()
+    for i in range(100):
+        proc.process_data(f"data_{i}")
+    assert len(proc.results) == 100
+
+def test_config_immutability():
+    """Non-Functional: Verify config doesn't change during processing."""
+    config = {"id": 1}
+    proc = CoreProcessor(config)
+    proc.process_data("test")
+    assert proc.config == {"id": 1} # Ensure processing didn't leak into config
