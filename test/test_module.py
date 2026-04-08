@@ -93,3 +93,10 @@ def test_config_immutability():
     proc = CoreProcessor(config)
     proc.process_data("test")
     assert proc.config == {"id": 1} # Ensure processing didn't leak into config
+
+def test_processor_reset_simulation():
+    """Non-Functional: Verify starting a new instance provides a fresh state."""
+    proc1 = CoreProcessor()
+    proc1.process_data("First")
+    proc2 = CoreProcessor()
+    assert len(proc2.results) == 0  # Should be fresh
