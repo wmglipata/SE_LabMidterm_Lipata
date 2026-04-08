@@ -1,5 +1,5 @@
 # Software Engineering Lab Midterm Exam
-**Student:** Charmaine Lipata  
+**Student:** Wilmar G. Lipata  
 **Topic:** Software Testing, Quality, and CI/CD  
 
 ## 📌 Project Overview
