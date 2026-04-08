@@ -1,4 +1,5 @@
 import logging
+from logging import config
 
 # Set up logging for the module
 logger = logging.getLogger(__name__)
@@ -30,3 +31,10 @@ class CoreProcessor:
         except Exception as e:
             logger.error(f"Processing error: {e}")
             raise
+
+    def validate_config(config):
+        """Utility to verify configuration keys."""
+        return isinstance(config, dict)
+
+if __name__ == "__main__":
+    print("Moodleplus Module: Logic loaded. Use 'test' branch for automation.")
