@@ -1,0 +1,2 @@
+# SE_LabMidterm_Lipata
+LABORATORY MIDTERM EXAM 
