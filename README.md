@@ -20,3 +20,6 @@ This repository contains a modular **User Authentication Validator** built in Py
 1. Clone the repository:
    ```bash
    git clone [https://github.com/YOUR_USERNAME/SE_LabMidterm_Lipata.git](https://github.com/YOUR_USERNAME/SE_LabMidterm_Lipata.git)
+
+## 📝 Test Sheet
+* [Test Case Sheet (Google Sheets)](https://docs.google.com/spreadsheets/d/17oQv8_UFdzMXXNlD944-_cz_li9tfnmo8F_Y4pMuyqA/edit?usp=sharing)
